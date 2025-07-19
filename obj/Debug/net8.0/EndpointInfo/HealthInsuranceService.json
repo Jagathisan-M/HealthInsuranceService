@@ -5,6 +5,238 @@
     "version": "1.0"
   },
   "paths": {
+    "/UserDetail/ValidateUser/{UserName}/{Password}": {
+      "get": {
+        "tags": [
+          "UserDetail"
+        ],
+        "parameters": [
+          {
+            "name": "UserName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Password",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDetailPageData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDetailPageData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDetailPageData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/UserDetail/Add": {
+      "post": {
+        "tags": [
+          "UserDetail"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDetail"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDetail"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDetail"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDetail"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/UserDetail/Update": {
+      "post": {
+        "tags": [
+          "UserDetail"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDetail"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDetail"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDetail"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDetail"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDetail"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/UserDetail/GetAllAcquirer/{PageNumber}/{PageSize}": {
+      "get": {
+        "tags": [
+          "UserDetail"
+        ],
+        "parameters": [
+          {
+            "name": "PageNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDetailPaginationData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDetailPaginationData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDetailPaginationData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/UserDetail/GetUserData/{UserID}": {
+      "get": {
+        "tags": [
+          "UserDetail"
+        ],
+        "parameters": [
+          {
+            "name": "UserID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDetailPageData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDetailPageData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDetailPageData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/WeatherForecast": {
       "get": {
         "tags": [
@@ -47,6 +279,237 @@
   },
   "components": {
     "schemas": {
+      "AcquirerPlan": {
+        "type": "object",
+        "properties": {
+          "acquirerPlanId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "userDetailId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "insurancePlanId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "paymentCycleId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "insurancePlan": {
+            "$ref": "#/components/schemas/InsurancePlan"
+          },
+          "paymentCycle": {
+            "$ref": "#/components/schemas/PaymentCycle"
+          },
+          "paymentSchedules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PaymentSchedule"
+            },
+            "nullable": true
+          },
+          "userDetail": {
+            "$ref": "#/components/schemas/UserDetail"
+          }
+        },
+        "additionalProperties": false
+      },
+      "InsurancePlan": {
+        "type": "object",
+        "properties": {
+          "insurancePlanId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "insuranceName": {
+            "type": "string",
+            "nullable": true
+          },
+          "sumAssured": {
+            "type": "number",
+            "format": "double"
+          },
+          "premiumPercentage": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "additionalPercentage": {
+            "type": "number",
+            "format": "double"
+          },
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdBy": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "modifiedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "modifiedBy": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "acquirerPlans": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AcquirerPlan"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaymentCycle": {
+        "type": "object",
+        "properties": {
+          "paymentCycleId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cycleDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "acquirerPlans": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AcquirerPlan"
+            },
+            "nullable": true
+          },
+          "paymentSchedules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PaymentSchedule"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaymentSchedule": {
+        "type": "object",
+        "properties": {
+          "paymentScheduleId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "userDetailId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "acquirerPlanId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "paymentCycleId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "premiumDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "premiumAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "isPaid": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "paymentDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "acquirerPlan": {
+            "$ref": "#/components/schemas/AcquirerPlan"
+          },
+          "paymentCycle": {
+            "$ref": "#/components/schemas/PaymentCycle"
+          },
+          "userDetail": {
+            "$ref": "#/components/schemas/UserDetail"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserDetail": {
+        "type": "object",
+        "properties": {
+          "userDetailId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "isIssuer": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "isSmoker": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "acquirerPlans": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AcquirerPlan"
+            },
+            "nullable": true
+          },
+          "paymentSchedules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PaymentSchedule"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserDetailPageData": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "UserDetailPaginationData": {
+        "type": "object",
+        "additionalProperties": false
+      },
       "WeatherForecast": {
         "type": "object",
         "properties": {

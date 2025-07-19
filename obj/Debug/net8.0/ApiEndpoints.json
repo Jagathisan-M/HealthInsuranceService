@@ -1,5 +1,145 @@
 [
   {
+    "ContainingType": "HealthInsuranceService.Controllers.UserDetailController",
+    "Method": "Add",
+    "RelativePath": "UserDetail/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userDetail",
+        "Type": "HealthInsuranceService.HealthInsuranceDBContext.UserDetail",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HealthInsuranceService.HealthInsuranceDBContext.UserDetail",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HealthInsuranceService.Controllers.UserDetailController",
+    "Method": "GetAllAcquirer",
+    "RelativePath": "UserDetail/GetAllAcquirer/{PageNumber}/{PageSize}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HealthInsuranceService.CoreFramework.PaginationData\u00601[[HealthInsuranceService.HealthInsuranceDBContext.UserDetail, HealthInsuranceService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HealthInsuranceService.Controllers.UserDetailController",
+    "Method": "GetUserData",
+    "RelativePath": "UserDetail/GetUserData/{UserID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HealthInsuranceService.CoreFramework.PageData\u00601[[HealthInsuranceService.HealthInsuranceDBContext.UserDetail, HealthInsuranceService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HealthInsuranceService.Controllers.UserDetailController",
+    "Method": "Update",
+    "RelativePath": "UserDetail/Update",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userDetail",
+        "Type": "HealthInsuranceService.HealthInsuranceDBContext.UserDetail",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HealthInsuranceService.HealthInsuranceDBContext.UserDetail",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HealthInsuranceService.Controllers.UserDetailController",
+    "Method": "ValidateUser",
+    "RelativePath": "UserDetail/ValidateUser/{UserName}/{Password}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "Password",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HealthInsuranceService.CoreFramework.PageData\u00601[[HealthInsuranceService.HealthInsuranceDBContext.UserDetail, HealthInsuranceService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "HealthInsuranceService.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",
