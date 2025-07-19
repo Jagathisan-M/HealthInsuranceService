@@ -1,5 +1,326 @@
 [
   {
+    "ContainingType": "HealthInsuranceService.Controllers.AcquirerPlanController",
+    "Method": "Add",
+    "RelativePath": "AcquirerPlan/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "acquirerPlan",
+        "Type": "HealthInsuranceService.HealthInsuranceDBContext.AcquirerPlan",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HealthInsuranceService.HealthInsuranceDBContext.AcquirerPlan",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HealthInsuranceService.Controllers.AcquirerPlanController",
+    "Method": "Get",
+    "RelativePath": "AcquirerPlan/Get/{acquirerPlanID}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "acquirerPlanID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HealthInsuranceService.CoreFrameworkModel.PageData\u00601[[HealthInsuranceService.HealthInsuranceDBContext.AcquirerPlan, HealthInsuranceService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HealthInsuranceService.Controllers.AcquirerPlanController",
+    "Method": "GetAllPlans",
+    "RelativePath": "AcquirerPlan/GetAllPlans/{PageNumber}/{PageSize}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HealthInsuranceService.CoreFrameworkModel.PaginationData\u00601[[HealthInsuranceService.HealthInsuranceDBContext.AcquirerPlan, HealthInsuranceService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HealthInsuranceService.Controllers.AcquirerPlanController",
+    "Method": "GetUserPlans",
+    "RelativePath": "AcquirerPlan/GetUserPlans/{UserDetailID}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserDetailID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HealthInsuranceService.CoreFrameworkModel.PageData\u00601[[HealthInsuranceService.HealthInsuranceDBContext.AcquirerPlan, HealthInsuranceService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HealthInsuranceService.Controllers.AcquirerPlanController",
+    "Method": "Update",
+    "RelativePath": "AcquirerPlan/Update",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "acquirerPlan",
+        "Type": "HealthInsuranceService.HealthInsuranceDBContext.AcquirerPlan",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HealthInsuranceService.HealthInsuranceDBContext.AcquirerPlan",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HealthInsuranceService.Controllers.InsurancePlanController",
+    "Method": "Add",
+    "RelativePath": "InsurancePlan/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "insurancePlan",
+        "Type": "HealthInsuranceService.HealthInsuranceDBContext.InsurancePlan",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HealthInsuranceService.HealthInsuranceDBContext.InsurancePlan",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HealthInsuranceService.Controllers.InsurancePlanController",
+    "Method": "Get",
+    "RelativePath": "InsurancePlan/Get/{insurancePlanID}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "insurancePlanID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HealthInsuranceService.CoreFrameworkModel.PageData\u00601[[HealthInsuranceService.HealthInsuranceDBContext.InsurancePlan, HealthInsuranceService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HealthInsuranceService.Controllers.InsurancePlanController",
+    "Method": "GetAll",
+    "RelativePath": "InsurancePlan/GetAll/{PageNumber}/{PageSize}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HealthInsuranceService.CoreFrameworkModel.PaginationData\u00601[[HealthInsuranceService.HealthInsuranceDBContext.InsurancePlan, HealthInsuranceService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HealthInsuranceService.Controllers.InsurancePlanController",
+    "Method": "Update",
+    "RelativePath": "InsurancePlan/Update",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "insurancePlan",
+        "Type": "HealthInsuranceService.HealthInsuranceDBContext.InsurancePlan",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HealthInsuranceService.HealthInsuranceDBContext.InsurancePlan",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HealthInsuranceService.Controllers.PaymentCycleController",
+    "Method": "GetAll",
+    "RelativePath": "PaymentCycle/GetAll",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HealthInsuranceService.HealthInsuranceDBContext.PaymentCycle, HealthInsuranceService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HealthInsuranceService.Controllers.PaymentScheduleController",
+    "Method": "GeneratePaymentSchedule",
+    "RelativePath": "PaymentSchedule/GeneratePaymentSchedule",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paymentSchedule",
+        "Type": "HealthInsuranceService.HealthInsuranceDBContext.PaymentSchedule",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HealthInsuranceService.CoreFrameworkModel.PageData\u00601[[HealthInsuranceService.HealthInsuranceDBContext.PaymentSchedule, HealthInsuranceService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HealthInsuranceService.Controllers.PaymentScheduleController",
+    "Method": "GetAllPlans",
+    "RelativePath": "PaymentSchedule/GetPaymentScheduleForUser/{UserDetailID}/{AcquirerPlanID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserDetailID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "AcquirerPlanID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HealthInsuranceService.HealthInsuranceDBContext.PaymentSchedule, HealthInsuranceService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "HealthInsuranceService.Controllers.UserDetailController",
     "Method": "Add",
     "RelativePath": "UserDetail/Add",
@@ -46,7 +367,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "HealthInsuranceService.CoreFramework.PaginationData\u00601[[HealthInsuranceService.HealthInsuranceDBContext.UserDetail, HealthInsuranceService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "HealthInsuranceService.CoreFrameworkModel.PaginationData\u00601[[HealthInsuranceService.HealthInsuranceDBContext.UserDetail, HealthInsuranceService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -72,7 +393,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "HealthInsuranceService.CoreFramework.PageData\u00601[[HealthInsuranceService.HealthInsuranceDBContext.UserDetail, HealthInsuranceService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "HealthInsuranceService.CoreFrameworkModel.PageData\u00601[[HealthInsuranceService.HealthInsuranceDBContext.UserDetail, HealthInsuranceService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -129,7 +450,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "HealthInsuranceService.CoreFramework.PageData\u00601[[HealthInsuranceService.HealthInsuranceDBContext.UserDetail, HealthInsuranceService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.String",
         "MediaTypes": [
           "text/plain",
           "application/json",

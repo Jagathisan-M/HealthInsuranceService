@@ -5,6 +5,560 @@
     "version": "1.0"
   },
   "paths": {
+    "/AcquirerPlan/GetAllPlans/{PageNumber}/{PageSize}": {
+      "post": {
+        "tags": [
+          "AcquirerPlan"
+        ],
+        "parameters": [
+          {
+            "name": "PageNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcquirerPlanPaginationData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcquirerPlanPaginationData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcquirerPlanPaginationData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/AcquirerPlan/Get/{acquirerPlanID}": {
+      "post": {
+        "tags": [
+          "AcquirerPlan"
+        ],
+        "parameters": [
+          {
+            "name": "acquirerPlanID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcquirerPlanPageData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcquirerPlanPageData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcquirerPlanPageData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/AcquirerPlan/GetUserPlans/{UserDetailID}": {
+      "post": {
+        "tags": [
+          "AcquirerPlan"
+        ],
+        "parameters": [
+          {
+            "name": "UserDetailID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcquirerPlanPageData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcquirerPlanPageData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcquirerPlanPageData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/AcquirerPlan/Add": {
+      "post": {
+        "tags": [
+          "AcquirerPlan"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AcquirerPlan"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AcquirerPlan"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AcquirerPlan"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcquirerPlan"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcquirerPlan"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcquirerPlan"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/AcquirerPlan/Update": {
+      "post": {
+        "tags": [
+          "AcquirerPlan"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AcquirerPlan"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AcquirerPlan"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AcquirerPlan"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcquirerPlan"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcquirerPlan"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AcquirerPlan"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/InsurancePlan/Get/{insurancePlanID}": {
+      "post": {
+        "tags": [
+          "InsurancePlan"
+        ],
+        "parameters": [
+          {
+            "name": "insurancePlanID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/InsurancePlanPageData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InsurancePlanPageData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InsurancePlanPageData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/InsurancePlan/GetAll/{PageNumber}/{PageSize}": {
+      "post": {
+        "tags": [
+          "InsurancePlan"
+        ],
+        "parameters": [
+          {
+            "name": "PageNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/InsurancePlanPaginationData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InsurancePlanPaginationData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InsurancePlanPaginationData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/InsurancePlan/Add": {
+      "post": {
+        "tags": [
+          "InsurancePlan"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InsurancePlan"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InsurancePlan"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/InsurancePlan"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/InsurancePlan"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InsurancePlan"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InsurancePlan"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/InsurancePlan/Update": {
+      "post": {
+        "tags": [
+          "InsurancePlan"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InsurancePlan"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InsurancePlan"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/InsurancePlan"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/InsurancePlan"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InsurancePlan"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InsurancePlan"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/PaymentCycle/GetAll": {
+      "post": {
+        "tags": [
+          "PaymentCycle"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PaymentCycle"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PaymentCycle"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PaymentCycle"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/PaymentSchedule/GetPaymentScheduleForUser/{UserDetailID}/{AcquirerPlanID}": {
+      "get": {
+        "tags": [
+          "PaymentSchedule"
+        ],
+        "parameters": [
+          {
+            "name": "UserDetailID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "AcquirerPlanID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PaymentSchedule"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PaymentSchedule"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PaymentSchedule"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/PaymentSchedule/GeneratePaymentSchedule": {
+      "post": {
+        "tags": [
+          "PaymentSchedule"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentSchedule"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentSchedule"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentSchedule"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentSchedulePageData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentSchedulePageData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentSchedulePageData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/UserDetail/ValidateUser/{UserName}/{Password}": {
       "get": {
         "tags": [
@@ -34,17 +588,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserDetailPageData"
+                  "type": "string"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserDetailPageData"
+                  "type": "string"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserDetailPageData"
+                  "type": "string"
                 }
               }
             }
@@ -321,6 +875,14 @@
         },
         "additionalProperties": false
       },
+      "AcquirerPlanPageData": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "AcquirerPlanPaginationData": {
+        "type": "object",
+        "additionalProperties": false
+      },
       "InsurancePlan": {
         "type": "object",
         "properties": {
@@ -369,6 +931,14 @@
             "nullable": true
           }
         },
+        "additionalProperties": false
+      },
+      "InsurancePlanPageData": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "InsurancePlanPaginationData": {
+        "type": "object",
         "additionalProperties": false
       },
       "PaymentCycle": {
@@ -448,6 +1018,10 @@
             "$ref": "#/components/schemas/UserDetail"
           }
         },
+        "additionalProperties": false
+      },
+      "PaymentSchedulePageData": {
+        "type": "object",
         "additionalProperties": false
       },
       "UserDetail": {
