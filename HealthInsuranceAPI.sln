@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36310.24
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthInsuranceAPI", "HealthInsuranceAPI\HealthInsuranceAPI.csproj", "{AD59A82B-992B-45E1-8ACC-F6C1A00F0C19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIUnitTestCase", "APIUnitTestCase\APIUnitTestCase.csproj", "{C6778E8E-AD2B-4099-AB78-0EB85C67F38E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD59A82B-992B-45E1-8ACC-F6C1A00F0C19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD59A82B-992B-45E1-8ACC-F6C1A00F0C19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD59A82B-992B-45E1-8ACC-F6C1A00F0C19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD59A82B-992B-45E1-8ACC-F6C1A00F0C19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6778E8E-AD2B-4099-AB78-0EB85C67F38E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6778E8E-AD2B-4099-AB78-0EB85C67F38E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6778E8E-AD2B-4099-AB78-0EB85C67F38E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6778E8E-AD2B-4099-AB78-0EB85C67F38E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {700B6F4E-8222-495B-9C69-328151AB3763}
+	EndGlobalSection
+EndGlobal
