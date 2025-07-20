@@ -16,13 +16,13 @@ namespace HealthInsuranceAPI.Controllers
             insurancePlanDB = _insurancePlanDB;
         }
 
-        [HttpPost("Get/{insurancePlanID}")]
+        [HttpGet("Get/{insurancePlanID}")]
         public PageData<InsurancePlan> Get(int insurancePlanID)
         {
             return insurancePlanDB.Get(insurancePlanID);
         }
 
-        [HttpPost("GetAll/{PageNumber}/{PageSize}")]
+        [HttpGet("GetAll/{PageNumber}/{PageSize}")]
         public PaginationData<InsurancePlan> GetAll(int PageNumber, int PageSize)
         {
             return insurancePlanDB.GetAllWithPagination(PageNumber, PageSize);
@@ -34,7 +34,7 @@ namespace HealthInsuranceAPI.Controllers
             return insurancePlanDB.Add(insurancePlan);
         }
 
-        [HttpPost("Update")]
+        [HttpPut("Update")]
         public InsurancePlan Update([FromBody] InsurancePlan insurancePlan)
         {
             return insurancePlanDB.Update(insurancePlan);

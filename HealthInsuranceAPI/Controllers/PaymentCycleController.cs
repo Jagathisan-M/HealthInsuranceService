@@ -16,7 +16,7 @@ namespace HealthInsuranceAPI.Controllers
             paymentCycleDB = _paymentCycleDB;
         }
 
-        [HttpPost("GetAll")]
+        [HttpGet("GetAll")]
         public IEnumerable<PaymentCycle> GetAll()
         {
             return paymentCycleDB.GetAll();

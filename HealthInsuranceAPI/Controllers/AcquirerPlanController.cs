@@ -16,19 +16,19 @@ namespace HealthInsuranceAPI.Controllers
             acquirerPlanDB = _acquirerPlanDB;
         }
 
-        [HttpPost("GetAllPlans/{PageNumber}/{PageSize}")]
+        [HttpGet("GetAllPlans/{PageNumber}/{PageSize}")]
         public PaginationData<AcquirerPlan> GetAllPlans(int PageNumber, int PageSize)
         {
             return acquirerPlanDB.GetAllWithPagination(PageNumber, PageSize);
         }
 
-        [HttpPost("Get/{acquirerPlanID}")]
+        [HttpGet("Get/{acquirerPlanID}")]
         public PageData<AcquirerPlan> Get(int acquirerPlanID)
         {
             return acquirerPlanDB.Get(acquirerPlanID);
         }
 
-        [HttpPost("GetUserPlans/{UserDetailID}")]
+        [HttpGet("GetUserPlans/{UserDetailID}")]
         public PageData<AcquirerPlan> GetUserPlans(int UserDetailID)
         {
             return acquirerPlanDB.GetUserPlans(UserDetailID);
@@ -40,7 +40,7 @@ namespace HealthInsuranceAPI.Controllers
             return acquirerPlanDB.Add(acquirerPlan);
         }
 
-        [HttpPost("Update")]
+        [HttpPut("Update")]
         public AcquirerPlan Update([FromBody] AcquirerPlan acquirerPlan)
         {
             return acquirerPlanDB.Update(acquirerPlan);
