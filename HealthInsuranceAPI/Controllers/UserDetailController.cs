@@ -55,7 +55,7 @@ namespace HealthInsuranceAPI.Controllers
         [HttpGet("ValidateUser/{UserName}/{Password}")]
         public PageData<UserDetail> ValidateUser(string UserName, String Password)
         {
-            return userDetailDB.ValidateUser(UserName, Password);
+              return userDetailDB.ValidateUser(UserName, Password);
         }
 
 

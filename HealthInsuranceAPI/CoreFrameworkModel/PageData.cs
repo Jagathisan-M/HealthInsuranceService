@@ -2,8 +2,8 @@
 {
     public class PageData<T>
     {
-        public IEnumerable<T> DataCollection;
-        public T Data;
-        public string Message;
+        public IEnumerable<T> DataCollection { get; set; }
+        public T Data { get; set; }
+        public string Message { get; set; }
     }
 }

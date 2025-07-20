@@ -80,6 +80,11 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddControllers(options =>
+{
+    options.RespectBrowserAcceptHeader = true;
+});
+
 //End : log in Console------------------------
 
 var app = builder.Build();

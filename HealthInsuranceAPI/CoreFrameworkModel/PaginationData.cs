@@ -3,8 +3,8 @@
     public class PaginationData<T>
     {
         public int TotalCount;
-        public IEnumerable<T> Data;
-        public int PageSize;
-        public int PageNumber;
+        public IEnumerable<T> Data { get; set; }
+        public int PageSize { get; set; }
+        public int PageNumber { get; set; }
     }
 }
