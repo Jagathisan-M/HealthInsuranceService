@@ -22,7 +22,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-string ConnectionString = builder.Configuration["ConnectionStrings:DBConnection"];
+string ConnectionString = builder.Configuration["ConnectionStrings:DBConnection"] ?? String.Empty;
 builder.Services.AddDbContext<HealthInsuranceContext>(options => 
         options.UseSqlServer(ConnectionString)
 );

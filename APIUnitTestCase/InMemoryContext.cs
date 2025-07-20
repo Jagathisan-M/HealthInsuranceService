@@ -13,20 +13,25 @@ namespace HealthInsuranceUnitTestCase
     [ExcludeFromCodeCoverage]
     internal static class InMemoryContext
     {
+        static HealthInsuranceContext Context;
         public static HealthInsuranceContext CreateContext
         {
             get
             {
-                var options = new DbContextOptionsBuilder<HealthInsuranceContext>()
-                        .UseInMemoryDatabase(databaseName: "TestDatabase")
-                        .UseInternalServiceProvider(
-                            (IServiceProvider?)new ServiceCollection()
-                            .AddEntityFrameworkInMemoryDatabase()
-                            .BuildServiceProvider()
-                        )
-                        .Options;
+                if (Context == null)
+                {
+                    var options = new DbContextOptionsBuilder<HealthInsuranceContext>()
+                            .UseInMemoryDatabase(databaseName: "TestDatabase")
+                            .UseInternalServiceProvider(
+                                (IServiceProvider?)new ServiceCollection()
+                                .AddEntityFrameworkInMemoryDatabase()
+                                .BuildServiceProvider()
+                            )
+                            .Options;
 
-                return new HealthInsuranceContext(options);
+                    Context = new HealthInsuranceContext(options);
+                }
+                return Context;
             }
         }
     }

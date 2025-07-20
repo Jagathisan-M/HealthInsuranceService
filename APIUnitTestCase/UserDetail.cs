@@ -38,8 +38,10 @@ namespace HealthInsuranceUnitTestCase
         [Fact]
         public void Should_Be_ValidUser()
         {
+            int expected = 1;
+
             PageData<UserDetail> pagedata  = controller.ValidateUser("admin", "admin");
-            Assert.Equal(pagedata.Data.UserDetailId, 1);
+            Assert.Equal(pagedata.Data.UserDetailId, expected);
         }
 
         [Fact]
@@ -52,42 +54,52 @@ namespace HealthInsuranceUnitTestCase
         [Fact]
         public void Should_Get_AllAcquirer()
         {
+            int expected = 1;
+
             PaginationData<UserDetail> pagedata = controller.GetAllAcquirer(1, 1);
-            Assert.Equal(pagedata.Data.Count(), 1);
-            Assert.Equal(pagedata.TotalCount, 1);
+            Assert.Equal(pagedata.Data.Count(), expected);
+            Assert.Equal(pagedata.TotalCount, expected);
         }
 
         [Fact]
         public void Should_Get_UserDetail()
         {
+            int expected = 1;
+
             PageData<UserDetail> pagedata = controller.GetUserData(1);
-            Assert.Equal(pagedata.Data.UserDetailId, 1);
+            Assert.Equal(pagedata.Data.UserDetailId, expected);
         }
 
         [Fact]
         public void Should_Add_User()
         {
+            int expected = 2;
+
             UserDetail pagedata = controller.Add(new UserDetail()
             {
                 UserName = "admin",
                 Password = "admin",
                 PhoneNumber = 1235678
             });
-            Assert.Equal(pagedata.UserDetailId, 2);
+            Assert.Equal(pagedata.UserDetailId, expected);
         }
 
         [Fact]
         public void Should_Update_User()
         {
+            string expected = "admin123";
+
             var userDetail = DbContext.UserDetails.Where(X => X.UserDetailId == 1).First();
             userDetail.UserName = "admin123";
             UserDetail pagedata = controller.Update(userDetail);
-            Assert.Equal(pagedata.UserName, "admin123");
+            Assert.Equal(pagedata.UserName, expected);
         }
 
         [Fact]
         public void Should_Remove_User()
         {
+            int expected = 2;
+
             UserDetail UserDetail = controller.Add(new UserDetail()
             {
                 UserName = "admin",
@@ -95,7 +107,7 @@ namespace HealthInsuranceUnitTestCase
                 PhoneNumber = 123
             });
             UserDetail pagedata = controller.Delete(UserDetail);
-            Assert.Equal(pagedata.UserDetailId, 2);
+            Assert.Equal(pagedata.UserDetailId, expected);
         }
 
     }
