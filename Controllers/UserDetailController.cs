@@ -65,10 +65,16 @@ namespace HealthInsuranceService.Controllers
             return userDetailDB.Add(userDetail);
         }
 
-        [HttpPost("Update")]
+        [HttpPut("Update")]
         public UserDetail Update([FromBody] UserDetail userDetail)
         {
             return userDetailDB.Update(userDetail);
+        }
+
+        [HttpDelete("Delete")]
+        public UserDetail Delete([FromBody] UserDetail userDetail)
+        {
+            return userDetailDB.Delete(userDetail);
         }
 
         [HttpGet("GetAllAcquirer/{PageNumber}/{PageSize}")]
@@ -80,7 +86,7 @@ namespace HealthInsuranceService.Controllers
         [HttpGet("GetUserData/{UserID}")]
         public PageData<UserDetail> GetUserData(int UserID)
         {
-            return userDetailDB.GetUserData(UserID);
+            return userDetailDB.Get(UserID);
         }
     }
 }

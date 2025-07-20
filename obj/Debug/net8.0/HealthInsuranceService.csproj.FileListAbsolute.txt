@@ -175,3 +175,16 @@ D:\HCL\HealthInsurance\HealthInsuranceService\HealthInsuranceService\bin\Debug\n
 D:\HCL\HealthInsurance\HealthInsuranceService\HealthInsuranceService\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 D:\HCL\HealthInsurance\HealthInsuranceService\HealthInsuranceService\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 D:\HCL\HealthInsurance\HealthInsuranceService\HealthInsuranceService\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\HCL\HealthInsurance\HealthInsuranceService\HealthInsuranceService\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
+D:\HCL\HealthInsurance\HealthInsuranceService\HealthInsuranceService\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+D:\HCL\HealthInsurance\HealthInsuranceService\HealthInsuranceService\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\HCL\HealthInsurance\HealthInsuranceService\HealthInsuranceService\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
+D:\HCL\HealthInsurance\HealthInsuranceService\HealthInsuranceService\bin\Debug\net8.0\Serilog.dll
+D:\HCL\HealthInsurance\HealthInsuranceService\HealthInsuranceService\bin\Debug\net8.0\Serilog.AspNetCore.dll
+D:\HCL\HealthInsurance\HealthInsuranceService\HealthInsuranceService\bin\Debug\net8.0\Serilog.Extensions.Hosting.dll
+D:\HCL\HealthInsurance\HealthInsuranceService\HealthInsuranceService\bin\Debug\net8.0\Serilog.Extensions.Logging.dll
+D:\HCL\HealthInsurance\HealthInsuranceService\HealthInsuranceService\bin\Debug\net8.0\Serilog.Formatting.Compact.dll
+D:\HCL\HealthInsurance\HealthInsuranceService\HealthInsuranceService\bin\Debug\net8.0\Serilog.Settings.Configuration.dll
+D:\HCL\HealthInsurance\HealthInsuranceService\HealthInsuranceService\bin\Debug\net8.0\Serilog.Sinks.Console.dll
+D:\HCL\HealthInsurance\HealthInsuranceService\HealthInsuranceService\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
+D:\HCL\HealthInsurance\HealthInsuranceService\HealthInsuranceService\bin\Debug\net8.0\Serilog.Sinks.File.dll

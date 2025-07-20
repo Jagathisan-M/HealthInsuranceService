@@ -25,7 +25,7 @@ namespace HealthInsuranceService.Controllers
         [HttpPost("Get/{acquirerPlanID}")]
         public PageData<AcquirerPlan> Get(int acquirerPlanID)
         {
-            return acquirerPlanDB.GetAcquirerPlanData(acquirerPlanID);
+            return acquirerPlanDB.Get(acquirerPlanID);
         }
 
         [HttpPost("GetUserPlans/{UserDetailID}")]

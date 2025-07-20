@@ -11,6 +11,8 @@ using System;
 using System.Configuration;
 using System.Text;
 
+using Serilog;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -21,7 +23,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 string ConnectionString = builder.Configuration["ConnectionStrings:DBConnection"];
-builder.Services.AddDbContext<HealthInsuranceContext>(options => options.UseSqlServer(ConnectionString));
+builder.Services.AddDbContext<HealthInsuranceContext>(options => 
+        options.UseSqlServer(ConnectionString)
+);
 
 builder.Services.AddScoped<UserDetailDB>();
 builder.Services.AddScoped<AcquirerPlanDB>();
@@ -29,22 +33,44 @@ builder.Services.AddScoped<InsurancePlanDB>();
 builder.Services.AddScoped<PaymentCycleDB>();
 builder.Services.AddScoped<PaymentScheduleDB>();
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
-    {
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = true,
-            ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration["Jwt:Issuer"],
-            ValidAudience = builder.Configuration["Jwt:Audience"],
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecretKey"]))
-        };
-    });
+//builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+//    .AddJwtBearer(options =>
+//    {
+//        options.TokenValidationParameters = new TokenValidationParameters
+//        {
+//            ValidateIssuer = true,
+//            ValidateAudience = true,
+//            ValidateLifetime = true,
+//            ValidateIssuerSigningKey = true,
+//            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+//            ValidAudience = builder.Configuration["Jwt:Audience"],
+//            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecretKey"]))
+//        };
+//    });
 
 builder.Services.AddAuthorization();
+
+//Start : To log in Files-----------------------
+
+//Nuget Pacage : 
+//Serilog.AspNetCore
+//Serilog.Sinks.File
+
+//Log.Logger = new LoggerConfiguration()
+//    .WriteTo.Console()
+//    .WriteTo.File("Logs/log.txt", rollingInterval: RollingInterval.Day)
+//    .CreateLogger();
+//builder.Host.UseSerilog();
+
+//End : To log in Files-----------------------
+
+//Start : log in Console----------------------
+
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+builder.Logging.AddDebug();
+
+//End : log in Console------------------------
 
 var app = builder.Build();
 

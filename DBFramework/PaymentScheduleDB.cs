@@ -4,14 +4,12 @@ using HealthInsuranceService.HealthInsuranceDBContext;
 
 namespace HealthInsuranceService.DBFramework
 {
-    public class PaymentScheduleDB : DatabaseLayer<PaymentSchedule>
+    public class PaymentScheduleDB : Repository<PaymentSchedule>
     {
-        IDatabaseLayer<PaymentSchedule> databaseLayer;
         HealthInsuranceContext context;
         public PaymentScheduleDB(HealthInsuranceContext _context) : base(_context)
         {
             context = _context;
-            databaseLayer = new DatabaseLayer<PaymentSchedule>(context);
         }
 
         public PageData<PaymentSchedule> GeneratePaymentSchedule(PaymentSchedule paymentSchedule)

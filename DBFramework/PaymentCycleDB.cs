@@ -4,14 +4,12 @@ using HealthInsuranceService.HealthInsuranceDBContext;
 
 namespace HealthInsuranceService.DBFramework
 {
-    public class PaymentCycleDB : DatabaseLayer<PaymentCycle>
+    public class PaymentCycleDB : Repository<PaymentCycle>
     {
-        IDatabaseLayer<PaymentCycle> databaseLayer;
         HealthInsuranceContext context;
         public PaymentCycleDB(HealthInsuranceContext _context) : base(_context)
         {
             context = _context;
-            databaseLayer = new DatabaseLayer<PaymentCycle>(context);
         }
     }
 }

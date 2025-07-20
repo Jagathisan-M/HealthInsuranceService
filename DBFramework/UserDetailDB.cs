@@ -5,21 +5,19 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HealthInsuranceService.DBFramework
 {
-    public class UserDetailDB : DatabaseLayer<UserDetail>
+    public class UserDetailDB : Repository<UserDetail>
     {
-        IDatabaseLayer<UserDetail> databaseLayer;
         HealthInsuranceContext context;
         public UserDetailDB(HealthInsuranceContext _context) : base(_context)
         {
             context = _context;
-            databaseLayer = new DatabaseLayer<UserDetail>(context);
         }
 
         public PageData<UserDetail> ValidateUser(string UserName, string Password)
         {
             PageData<UserDetail> data = new PageData<UserDetail>();
 
-            UserDetail userDetail = databaseLayer.GetAll().Where(item => item.UserName == UserName && item.Password == Password).FirstOrDefault();
+            UserDetail userDetail = GetAll().Where(item => item.UserName == UserName && item.Password == Password).FirstOrDefault();
 
             if (userDetail != null)
             {
@@ -35,7 +33,7 @@ namespace HealthInsuranceService.DBFramework
 
         public PaginationData<UserDetail> GetAllAcquirer(int PageNumber, int PageSize)
         {
-            var Acquirers = databaseLayer.GetAll().Where(item => item.IsIssuer ?? false).ToList();
+            var Acquirers = GetAll().Where(item => !(item.IsIssuer ?? false)).ToList();
 
             return new PaginationData<UserDetail>()
             {
@@ -43,24 +41,6 @@ namespace HealthInsuranceService.DBFramework
                 Data = Acquirers.Skip(PageNumber - 1 * PageSize).Take(PageSize).ToList(),
                 PageNumber = PageNumber,
                 PageSize = PageSize
-            };
-        }
-
-        public PageData<UserDetail> GetUserData(int UserDetailID)
-        {
-            var Acquirer = databaseLayer.GetAll().Where(item => item.UserDetailId == UserDetailID).FirstOrDefault();
-
-            if (Acquirer != null)
-            {
-                return new PageData<UserDetail>()
-                {
-                    Data = Acquirer
-                };
-            }
-
-            return new PageData<UserDetail>
-            {
-                Message = "No data found"
             };
         }
     }

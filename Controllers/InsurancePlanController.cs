@@ -19,7 +19,7 @@ namespace HealthInsuranceService.Controllers
         [HttpPost("Get/{insurancePlanID}")]
         public PageData<InsurancePlan> Get(int insurancePlanID)
         {
-            return insurancePlanDB.GetInsurancePlanData(insurancePlanID);
+            return insurancePlanDB.Get(insurancePlanID);
         }
 
         [HttpPost("GetAll/{PageNumber}/{PageSize}")]

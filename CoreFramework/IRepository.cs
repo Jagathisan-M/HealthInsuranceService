@@ -2,9 +2,10 @@
 
 namespace HealthInsuranceService.CoreFramework
 {
-    interface IDatabaseLayer<T> where T : class
+    interface IRepository<T> where T : class
     {
         IEnumerable<T> GetAll();
+        PageData<T> Get(long ID);
         PaginationData<T> GetAllWithPagination(int PageNumber, int PageSize);
         T Add(T entity);
         T Update(T entty);

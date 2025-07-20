@@ -1,15 +1,16 @@
 ﻿using HealthInsuranceService.CoreFrameworkModel;
+using HealthInsuranceService.DBFramework;
 using HealthInsuranceService.HealthInsuranceDBContext;
 using Microsoft.EntityFrameworkCore;
 
 namespace HealthInsuranceService.CoreFramework
 {
-    public class DatabaseLayer<T> : IDatabaseLayer<T> where T : class
+    public class Repository<T> : IRepository<T> where T : class
     {
         HealthInsuranceContext context;
         DbSet<T> dbset;
 
-        public DatabaseLayer(HealthInsuranceContext _context)
+        public Repository(HealthInsuranceContext _context)
         {
             context = _context;
             dbset = context.Set<T>();
@@ -18,6 +19,24 @@ namespace HealthInsuranceService.CoreFramework
         public IEnumerable<T> GetAll()
         {
             return dbset.ToList();
+        }
+
+        public PageData<T> Get(long ID)
+        {
+            var Data = dbset.Find(ID);
+
+            if (Data != null)
+            {
+                return new PageData<T>()
+                {
+                    Data = Data
+                };
+            }
+
+            return new PageData<T>
+            {
+                Message = "No data found"
+            };
         }
 
         public PaginationData<T> GetAllWithPagination(int PageNumber, int PageSize)
