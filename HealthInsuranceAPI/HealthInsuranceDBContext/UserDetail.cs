@@ -7,7 +7,7 @@ public partial class UserDetail
 {
     public long UserDetailId { get; set; }
 
-    public bool? IsIssuer { get; set; }
+    public bool? IsIssuer { get; set; } = false;
 
     public string UserName { get; set; } = null!;
 
@@ -19,7 +19,7 @@ public partial class UserDetail
 
     public long PhoneNumber { get; set; }
 
-    public bool? IsSmoker { get; set; }
+    public bool? IsSmoker { get; set; } = false;
 
     public virtual ICollection<AcquirerPlan> AcquirerPlans { get; set; } = new List<AcquirerPlan>();
 
