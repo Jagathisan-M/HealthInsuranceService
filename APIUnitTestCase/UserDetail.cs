@@ -1,10 +1,11 @@
-using Castle.Core.Configuration;
+using HealthInsuranceAPI.AuthendicationService;
 using HealthInsuranceAPI.Controllers;
 using HealthInsuranceAPI.CoreFrameworkModel;
 using HealthInsuranceAPI.DBFramework;
 using HealthInsuranceAPI.HealthInsuranceDBContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Moq;
@@ -23,7 +24,7 @@ namespace HealthInsuranceUnitTestCase
         {
             DbContext = InMemoryContext.CreateContext;
             dbObject = new UserDetailDB(DbContext);
-            controller = new UserDetailController(dbObject, It.IsAny<Microsoft.Extensions.Configuration.IConfiguration>());
+            controller = new UserDetailController(dbObject, It.IsAny<IConfiguration>(), It.IsAny<TokenService>(), It.IsAny<MemoryCacheService>());
 
             DbContext.UserDetails.Add(new UserDetail()
             {

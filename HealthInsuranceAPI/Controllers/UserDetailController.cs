@@ -1,7 +1,9 @@
-﻿using HealthInsuranceAPI.CoreFrameworkModel;
+﻿using HealthInsuranceAPI.AuthendicationService;
+using HealthInsuranceAPI.CoreFrameworkModel;
 using HealthInsuranceAPI.DBFramework;
 using HealthInsuranceAPI.HealthInsuranceDBContext;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -16,11 +18,15 @@ namespace HealthInsuranceAPI.Controllers
     {
         UserDetailDB userDetailDB { get; set; }
         IConfiguration _configuration;
+        TokenService tokenService;
+        MemoryCacheService memoryCacheService;
 
-        public UserDetailController(UserDetailDB _userDetailDB, IConfiguration configuration)
+        public UserDetailController(UserDetailDB _userDetailDB, IConfiguration configuration, TokenService _tokenService, MemoryCacheService _memoryCacheService)
         {
             _configuration = configuration;
             userDetailDB = _userDetailDB;
+            tokenService = _tokenService;
+            memoryCacheService = _memoryCacheService;
         }
 
         //[HttpGet("ValidateUser/{UserName}/{Password}")]
@@ -55,9 +61,17 @@ namespace HealthInsuranceAPI.Controllers
         [HttpGet("ValidateUser/{UserName}/{Password}")]
         public PageData<UserDetail> ValidateUser(string UserName, String Password)
         {
-              return userDetailDB.ValidateUser(UserName, Password);
-        }
+            var pageData = userDetailDB.ValidateUser(UserName, Password);
+            if (pageData != null && pageData.Data != null)
+            {
+                var token = tokenService.GenerateToken(pageData.Data.UserDetailId.ToString());
+                memoryCacheService.StoreToken(pageData.Data.UserDetailId.ToString(), token);
+                pageData.Token = token;
+                return pageData;
+            }
 
+            throw new UnauthorizedAccessException("UnAuthorized User");
+        }
 
         [HttpPost("Add")]
         public UserDetail Add([FromBody] UserDetail userDetail)

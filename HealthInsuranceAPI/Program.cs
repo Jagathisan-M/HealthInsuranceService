@@ -12,6 +12,7 @@ using System.Configuration;
 using System.Text;
 
 using Serilog;
+using HealthInsuranceAPI.AuthendicationService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,23 +28,19 @@ builder.Services.AddDbContext<HealthInsuranceContext>(options =>
         options.UseSqlServer(ConnectionString)
 );
 
-builder.Services.AddScoped<UserDetailDB>();
-builder.Services.AddScoped<AcquirerPlanDB>();
-builder.Services.AddScoped<InsurancePlanDB>();
-builder.Services.AddScoped<PaymentCycleDB>();
-builder.Services.AddScoped<PaymentScheduleDB>();
+builder.Services.AddMemoryCache();
 
 //builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 //    .AddJwtBearer(options =>
 //    {
 //        options.TokenValidationParameters = new TokenValidationParameters
 //        {
-//            ValidateIssuer = true,
-//            ValidateAudience = true,
+//            ValidateIssuer = false,
+//            ValidateAudience = false,
 //            ValidateLifetime = true,
 //            ValidateIssuerSigningKey = true,
-//            ValidIssuer = builder.Configuration["Jwt:Issuer"],
-//            ValidAudience = builder.Configuration["Jwt:Audience"],
+//            //ValidIssuer = builder.Configuration["Jwt:Issuer"],
+//            //ValidAudience = builder.Configuration["Jwt:Audience"],
 //            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecretKey"]))
 //        };
 //    });
@@ -56,19 +53,19 @@ builder.Services.AddAuthorization();
 //Serilog.AspNetCore
 //Serilog.Sinks.File
 
-//Log.Logger = new LoggerConfiguration()
-//    .WriteTo.Console()
-//    .WriteTo.File("Logs/log.txt", rollingInterval: RollingInterval.Day)
-//    .CreateLogger();
-//builder.Host.UseSerilog();
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.File("Logs/logAPI.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+builder.Host.UseSerilog();
 
 //End : To log in Files-----------------------
 
 //Start : log in Console----------------------
 
-builder.Logging.ClearProviders();
-builder.Logging.AddConsole();
-builder.Logging.AddDebug();
+//builder.Logging.ClearProviders();
+//builder.Logging.AddConsole();
+//builder.Logging.AddDebug();
 
 builder.Services.AddCors(options =>
 {
@@ -85,6 +82,14 @@ builder.Services.AddControllers(options =>
     options.RespectBrowserAcceptHeader = true;
 });
 
+builder.Services.AddScoped<UserDetailDB>();
+builder.Services.AddScoped<AcquirerPlanDB>();
+builder.Services.AddScoped<InsurancePlanDB>();
+builder.Services.AddScoped<PaymentCycleDB>();
+builder.Services.AddScoped<PaymentScheduleDB>();
+builder.Services.AddScoped<TokenService>();
+builder.Services.AddScoped<MemoryCacheService>();
+
 //End : log in Console------------------------
 
 var app = builder.Build();
@@ -95,22 +100,23 @@ app.UseExceptionHandler(handler =>
     {
         var exception = context.Features.Get<IExceptionHandlerPathFeature>();
 
-        context.Response.ContentType = "application/json";
+        //context.Response.ContentType = "application/json";
 
         if (exception?.Error is SqlException)
         {
             context.Response.StatusCode = 547;
+            await context.Response.WriteAsync(exception.Error.Message);
         }
         else if (exception?.Error is UnauthorizedAccessException)
         {
             context.Response.StatusCode = 401;
+            await context.Response.WriteAsync(exception.Error.Message);
         }
         else
         {
             context.Response.StatusCode = 500;
+            await context.Response.WriteAsync("Internal Server Error");
         }
-
-        await context.Response.WriteAsync("Internal Server Error");
     });
 });
 
