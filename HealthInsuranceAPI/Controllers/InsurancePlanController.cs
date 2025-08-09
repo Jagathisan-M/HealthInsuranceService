@@ -25,7 +25,8 @@ namespace HealthInsuranceAPI.Controllers
         [HttpGet("GetAll/{PageNumber}/{PageSize}")]
         public PaginationData<InsurancePlan> GetAll(int PageNumber, int PageSize)
         {
-            return insurancePlanDB.GetAllWithPagination(PageNumber, PageSize);
+            //return insurancePlanDB.GetAllWithPagination(PageNumber, PageSize, item => new { item.InsurancePlanId, item.InsuranceName});
+            return insurancePlanDB.GetAllWithPagination(PageNumber, PageSize, item => item.InsurancePlanId);
         }
 
         [HttpPost("Add")]

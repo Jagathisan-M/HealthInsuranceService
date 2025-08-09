@@ -3,6 +3,7 @@ using HealthInsuranceAPI.Controllers;
 using HealthInsuranceAPI.CoreFrameworkModel;
 using HealthInsuranceAPI.DBFramework;
 using HealthInsuranceAPI.HealthInsuranceDBContext;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
@@ -39,17 +40,20 @@ namespace HealthInsuranceUnitTestCase
         [Fact]
         public void Should_Be_ValidUser()
         {
-            int expected = 1;
+            int expected = 1, statusCode = 200;
 
-            PageData<UserDetail> pagedata  = controller.ValidateUser("admin", "admin");
-            Assert.Equal(pagedata.Data.UserDetailId, expected);
+            var response  = controller.ValidateUser("admin", "admin") as ObjectResult;
+            var pageData = response?.Value as PageData<UserDetail>;
+            Assert.Equal(pageData?.Data.UserDetailId, expected);
+            Assert.Equal(response?.StatusCode, statusCode);
         }
 
         [Fact]
         public void Should_Be_InValidUser()
         {
-            PageData<UserDetail> pagedata = controller.ValidateUser("admin1", "admin1");
-            Assert.True(pagedata.Data == null);
+            int statusCode = 401;
+            var response = controller.ValidateUser("admin1", "admin1") as ObjectResult;
+            Assert.Equal(response?.StatusCode, statusCode);
         }
 
         [Fact]
@@ -67,8 +71,17 @@ namespace HealthInsuranceUnitTestCase
         {
             int expected = 1;
 
-            PageData<UserDetail> pagedata = controller.GetUserData(1);
-            Assert.Equal(pagedata.Data.UserDetailId, expected);
+            var result = controller.GetUserData(1) as ObjectResult;
+            var pageData = result?.Value as PageData<UserDetail>;
+            Assert.Equal(pageData?.Data.UserDetailId, expected);
+        }
+
+        [Fact]
+        public void Should_Get_UserDetailWith404()
+        {
+            int expected = 404;
+            var result = controller.GetUserData(-1) as ObjectResult;
+            Assert.Equal(result?.StatusCode, expected);
         }
 
         [Fact]

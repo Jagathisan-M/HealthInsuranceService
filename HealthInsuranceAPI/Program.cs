@@ -18,7 +18,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+//builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -80,7 +80,8 @@ builder.Services.AddCors(options =>
 builder.Services.AddControllers(options =>
 {
     options.RespectBrowserAcceptHeader = true;
-});
+    options.ReturnHttpNotAcceptable = true;
+}).AddXmlSerializerFormatters();
 
 builder.Services.AddScoped<UserDetailDB>();
 builder.Services.AddScoped<AcquirerPlanDB>();
